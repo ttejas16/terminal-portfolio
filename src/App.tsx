@@ -21,7 +21,7 @@ export const commands: CommandMap = {
 
 function App() {
   const inputRef = useRef<HTMLDivElement>(null);
-  const [currentCommand, setCurrentCommand] = useState("home");
+  const [currentCommand, setCurrentCommand] = useState("about");
   const Comp = (currentCommand in commands) ? commands[currentCommand as keyof CommandMap] : Error;
 
   useEffect(() => {

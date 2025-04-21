@@ -1,7 +1,72 @@
+type Language = {
+    name: string,
+    url: string
+}
+
+const langugages: Language[] = [
+    { name: "C", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
+    { name: "Javascript", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+    { name: "Typescript", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+    { name: "React", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+    { name: "Python", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+    { name: "Postgres", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+    { name: "Git", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+    { name: "Nodejs", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+    { name: "Vite", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
+    { name: "Mongodb", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+    { name: "Linux", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" },
+    { name: "Java", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+]
+
+const socialLinks = [
+    { name: "Github", url: "https://github.com/ttejas16", iconUrl: "https://cdn.simpleicons.org/github/ffffff" },
+    { name: "Instagram", url: "https://instagram.com/ttejas16", iconUrl: "https://cdn.simpleicons.org/instagram/ffffff" },
+    { name: "Gmail", url: "mailto:jagtaptejas128@gmail.com", iconUrl: "https://cdn.simpleicons.org/gmail/ffffff" },
+]
+
 function About() {
     return (
-        <div>
-            about
+        <div className="px-6 py-6 text-lg flex flex-col h-full">
+            <div>Hellew I'm Tejas. A developer from Pune, India.</div>
+            <div>I like to bulid things for web but(emphasized 'but') also I like to write C.</div>
+            <div className="mt-6">
+                I have completed my Bachelors in Computer Science in 2024 and
+                <br />currenlty looking for job opportunities.
+            </div>
+            <div className="mt-6">
+                I preferably use Javascript, Typescript, React but can learn any tech as required.
+            </div>
+            <div>
+                Overall things that I know:
+                <div className="mt-4 grid grid-cols-6 w-max 
+                [&>*]:border [&>*]:border-neutral-600 
+                [&>*:not(:nth-child(-n+6))]:border-t-0 
+                [&>*:not(:nth-child(6n+1))]:border-l-0">
+                    {
+                        langugages.map((lang, index) => {
+                            return (
+                                <div key={index} className="px-4 py-3" title={lang.name}>
+                                    <img src={lang.url} alt="" className="w-6 h-6" />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+            <div className="flex mt-auto gap-x-4 ">
+                <span>Links:</span>
+                {
+                    socialLinks.map((social, index) => {
+                        return (
+                            <div title={social.name} key={index} className="h-6 w-6">
+                                <a href={social.url} target="_blank">
+                                    <img src={social.iconUrl} alt={social.name} />
+                                </a>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
