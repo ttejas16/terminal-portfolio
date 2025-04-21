@@ -1,33 +1,23 @@
-import { JSX, useEffect, useRef, useState } from "react"
-import Projects from "./components/Projects";
-import About from "./components/About";
-import Home from "./components/Home";
-import Help from "./components/Help";
+import { useCallback, useEffect, useRef, useState } from "react"
 import Error from "./components/Error";
-
-type CommandMap = {
-  projects: () => JSX.Element,
-  about: () => JSX.Element,
-  home: () => JSX.Element,
-  help: () => JSX.Element,
-}
-
-export const commands: CommandMap = {
-  projects: Projects,
-  about: About,
-  home: Home,
-  help: Help
-}
+import { commands, CommandMap } from "./utils/commands";
 
 function App() {
-  const inputRef = useRef<HTMLDivElement>(null);
-  const [currentCommand, setCurrentCommand] = useState("about");
-  const Comp = (currentCommand in commands) ? commands[currentCommand as keyof CommandMap] : Error;
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [currentCommand, setCurrentCommand] = useState("abou");
+  const Component = (currentCommand in commands) ? commands[currentCommand as keyof CommandMap] : Error;
+
+  const handleFocus = useCallback((e: KeyboardEvent) => {
+    if (e.key == '/' && inputRef.current) {
+      e.preventDefault();
+      inputRef.current.focus();
+    }
+  }, [])
 
   useEffect(() => {
-    if (!inputRef.current) return;
-    
-  },[]);
+    document.addEventListener("keydown", handleFocus);
+    return () => document.removeEventListener("keydown", handleFocus);
+  }, [handleFocus]);
 
   return (
     <div className='px-48 py-16 flex flex-col h-screen'>
@@ -38,16 +28,19 @@ function App() {
         <div className="flex gap-x-2 items-center justify-start w-full">
           <span className="text-primary">$</span>
           <input
+            ref={inputRef}
             autoFocus
             type="text"
-            className="outline-none border-none bg-inherit text-neutral-300 pr-2 caret-neutral-400"
+            className="outline-none border-none bg-inherit text-neutral-300 pr-4 caret-neutral-400 w-full"
             onKeyDown={e => {
               const command = e.currentTarget.value;
               if (e.key == 'Enter' && (command in commands)) {
                 setCurrentCommand(command);
+                if (inputRef.current) inputRef.current.value = ""; 
               }
               else if (e.key == 'Enter') {
-                setCurrentCommand("Not found");
+                setCurrentCommand(command);
+                if (inputRef.current) inputRef.current.value = "";
               }
             }}
           />
@@ -56,7 +49,7 @@ function App() {
       </section>
       <section className="h-full border-[1px] border-neutral-800">
         {
-          <Comp />
+          <Component command={currentCommand} />
         }
       </section>
     </div>

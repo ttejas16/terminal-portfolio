@@ -1,3 +1,5 @@
+import useFadeIn from "../hooks/useFadeIn"
+
 type Language = {
     name: string,
     url: string
@@ -25,18 +27,24 @@ const socialLinks = [
 ]
 
 function About() {
+    const { rootRef, animatedClassName } = useFadeIn();
+
     return (
-        <div className="px-6 py-6 text-lg flex flex-col h-full">
-            <div>Hellew I'm Tejas. A developer from Pune, India.</div>
-            <div>I like to bulid things for web but(emphasized 'but') also I like to write C.</div>
-            <div className="mt-6">
-                I have completed my Bachelors in Computer Science in 2024 and
-                <br />currenlty looking for job opportunities.
+        <div
+            ref={rootRef}
+            className="px-6 py-6 text-lg flex flex-col h-full">
+            <div className={`${animatedClassName}`}>
+                <div>Hellew I'm Tejas. A developer from Pune, India.</div>
+                <div>I like to bulid things for web but(emphasized 'but') also I like to write C.</div>
+                <div className="mt-6">
+                    I have completed my Bachelors in Computer Science in 2024 and
+                    <br />currenlty looking for job opportunities.
+                </div>
+                <div className="mt-6">
+                    I preferably use Javascript, Typescript, React but can learn any tech as required.
+                </div>
             </div>
-            <div className="mt-6">
-                I preferably use Javascript, Typescript, React but can learn any tech as required.
-            </div>
-            <div>
+            <div className={`${animatedClassName}`}>
                 Overall things that I know:
                 <div className="mt-4 grid grid-cols-6 w-max 
                 [&>*]:border [&>*]:border-neutral-600 
@@ -53,7 +61,7 @@ function About() {
                     }
                 </div>
             </div>
-            <div className="flex mt-auto gap-x-4 ">
+            <div className={`flex mt-auto gap-x-4 ${animatedClassName}`}>
                 <span>Links:</span>
                 {
                     socialLinks.map((social, index) => {
