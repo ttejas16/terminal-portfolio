@@ -4,7 +4,7 @@ import { commands, CommandMap } from "./utils/commands";
 
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [currentCommand, setCurrentCommand] = useState("abou");
+  const [currentCommand, setCurrentCommand] = useState("home");
   const Component = (currentCommand in commands) ? commands[currentCommand as keyof CommandMap] : Error;
 
   const handleFocus = useCallback((e: KeyboardEvent) => {

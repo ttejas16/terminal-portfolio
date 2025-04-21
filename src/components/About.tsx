@@ -46,27 +46,27 @@ function About() {
             </div>
             <div className={`${animatedClassName}`}>
                 Overall things that I know:
-                <div className="mt-4 grid grid-cols-6 w-max 
-                [&>*]:border [&>*]:border-neutral-600 
+                <div className="mt-6 grid grid-cols-6 w-max 
+                [&>*]:border [&>*]:border-primary/60 
                 [&>*:not(:nth-child(-n+6))]:border-t-0 
                 [&>*:not(:nth-child(6n+1))]:border-l-0">
                     {
                         langugages.map((lang, index) => {
                             return (
                                 <div key={index} className="px-4 py-3" title={lang.name}>
-                                    <img src={lang.url} alt="" className="w-6 h-6" />
+                                    <img src={lang.url} alt="" className="w-7 h-7" />
                                 </div>
                             )
                         })
                     }
                 </div>
             </div>
-            <div className={`flex mt-auto gap-x-4 ${animatedClassName}`}>
-                <span>Links:</span>
+            <div className={`flex items-center mt-auto ${animatedClassName}`}>
+                <span className="mr-2">Links:</span>
                 {
                     socialLinks.map((social, index) => {
                         return (
-                            <div title={social.name} key={index} className="h-6 w-6">
+                            <div title={social.name} key={index} className="w-10 h-10 p-2 hover:bg-neutral-800 rounded-md duration-200">
                                 <a href={social.url} target="_blank">
                                     <img src={social.iconUrl} alt={social.name} />
                                 </a>

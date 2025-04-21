@@ -1,14 +1,18 @@
 import { createTimeline } from "animejs";
 import { useEffect } from "react";
 import { commands } from "../utils/commands";
+import useFadeIn from "../hooks/useFadeIn";
 
 function Error({ command }: { command: string }) {
+    const { rootRef, animatedClassName } = useFadeIn();
     return (
-        <div className="h-full flex justify-center items-center flex-col text-lg">
-            <div>
-                Sorry can't interpret the command '<span className="text-primary">{command}</span>'
+        <div ref={rootRef} className="h-full flex justify-center items-center text-lg">
+            <div className={`flex flex-col items-center ${animatedClassName}`}>
+                <div>
+                    Sorry can't interpret the command '<span className="text-primary">{command}</span>'
+                </div>
+                <TextRoll />
             </div>
-            <TextRoll />
         </div>
     )
 }
@@ -20,7 +24,7 @@ const commandsNames = Object.keys(commands);
 function TextRoll() {
 
     useEffect(() => {
-        const tl = createTimeline({ autoplay: true, loop: true, delay: 500});
+        const tl = createTimeline({ autoplay: true, loop: true, delay: 500 });
         tl
             .add(".one", {
                 y: ["0%", "60%"],
@@ -75,8 +79,10 @@ function TextRoll() {
     }, []);
 
     return (
-        <div className="flex gap-x-2 mt-2">
-            Maybe try
+        <div className="flex gap-x-2 mt-2 justify-start -translate-x-[30%]">
+            <span>
+                Maybe try
+            </span>
             <div className="relative text-primary">
                 {
                     commandsNames.map((commandName, index) => {
