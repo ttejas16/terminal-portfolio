@@ -26,3 +26,23 @@
 input{
   caret-shape: block;
 }
+
+.grid-item::before, 
+.grid-item::after {
+   content: '';
+   position: absolute;
+   background-color: #333;
+   z-index: 1;
+}
+.grid-item::after {
+  width: 100vw;
+  height: 1px;
+  left: 0;
+  top: -1px;
+}
+.grid-item::before {
+  width: 1px;
+  height: 100vh;
+  left: -1px;
+  top: 0;
+}
