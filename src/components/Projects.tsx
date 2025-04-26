@@ -34,7 +34,7 @@ interface ItemProps extends PropsWithChildren {
 }
 function GridItem({ children, info, tags }: ItemProps) {
     return (
-        <div className="h-min px-6 py-6 flex flex-col gap-2 border-[1px] border-neutral-600">
+        <div className="h- px-6 py-6 flex flex-col gap-2 border-[1px] border-neutral-600">
             <div className="w-full h-40 bg-neutral-800 rounded-sm flex justify-center items-center">
                 {children}
                 {
