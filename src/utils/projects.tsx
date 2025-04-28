@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import AnimatedText from "../components/AnimatedText";
 import Visualizer from "../components/Visualizer";
 import SpinningOrbit from "../components/SpinningOrbit";
+import Breakout from "../components/Breakout";
 
 interface Project {
     info: string,
@@ -36,6 +37,7 @@ const projects: Project[] = [
     {
         info: "Breakout - A small bricks out like game.",
         tags: ["Python", "Pygame"],
+        thumbnailComponent: Breakout
     },
 ];
 
