@@ -13,7 +13,7 @@ function Projects() {
                 projects.map((project, index) => {
                     if (project.thumbnailComponent) {
                         return (
-                            <GridItem info={project.info} tags={project.tags}>
+                            <GridItem key={index} info={project.info} tags={project.tags}>
                                 <project.thumbnailComponent/>
                             </GridItem>
                         )
