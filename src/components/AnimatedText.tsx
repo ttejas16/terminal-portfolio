@@ -1,8 +1,9 @@
 import { createTimeline } from "animejs";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useAnimationControl } from "../hooks/useAnimationControl";
 
 function AnimatedText() {
-    const [state, setState] = useState(false);
+    const { pause } = useAnimationControl();
 
     useEffect(() => {
         const tl = createTimeline({ loop: true, autoplay: true, loopDelay: 2000 });
@@ -41,17 +42,16 @@ function AnimatedText() {
             })
             .init();
 
-        if (state) {
+        if (pause) {
             tl.complete();
             tl.pause();
         }
 
         return () => { tl.revert() }
-    }, [state]);
+    }, [pause]);
 
     return (
         <div className="flex wrapper text-lg font-semibold">
-            {/* <button onClick={() => setState(!state)}>click</button> */}
             <span className="one word">int</span>&nbsp;
             <span className="two word">num</span>&nbsp;
             <span className="three word">=</span>&nbsp;

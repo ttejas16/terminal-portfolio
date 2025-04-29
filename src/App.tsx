@@ -36,7 +36,7 @@ function App() {
               const command = e.currentTarget.value;
               if (e.key == 'Enter' && (command in commands)) {
                 setCurrentCommand(command);
-                if (inputRef.current) inputRef.current.value = ""; 
+                if (inputRef.current) inputRef.current.value = "";
               }
               else if (e.key == 'Enter') {
                 setCurrentCommand(command);
