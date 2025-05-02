@@ -12,11 +12,9 @@ function Projects() {
   return (
     <div ref={rootRef} className="w-full h-full flex flex-col">
 
-      <div className={`w-full grid grid-cols-3 
-                place-content-start overflow-hidden
-                [&>*]:border [&>*]:border-neutral-800 
-                [&>*:not(:nth-child(-n+3))]:border-t-0 
-                [&>*:not(:nth-child(3n+1))]:border-l-0 ${animatedClassName}`}>
+      <div className={`w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+                place-content-start overflow-hidden 
+                 ${animatedClassName}`}>
         {
           projects.map((project, index) => {
             if (project.thumbnailComponent) {
@@ -58,7 +56,10 @@ interface ItemProps extends PropsWithChildren {
 }
 function GridItem({ children, info, tags }: ItemProps) {
   return (
-    <div className="h- px-6 py-6 flex flex-col gap-2 border-[1px] border-neutral-600">
+    <div className="h-full px-6 py-6 flex flex-col gap-2
+    relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:block after:w-full after:bg-neutral-800
+    before:absolute before:right-0 before:top-0 before:w-[1px] before:block before:h-full before:bg-neutral-800
+    ">
       <div className="w-full h-40 bg-neutral-800 rounded-sm flex justify-center items-center">
         {children}
         {

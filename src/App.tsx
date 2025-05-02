@@ -47,7 +47,7 @@ function App() {
         </div>
 
       </section>
-      <section className="h-full border-[1px] border-neutral-800">
+      <section className="h-full relative before:absolute before:inset-0 before:border-[1px] before:border-neutral-800 before:pointer-events-none">
         {
           <Component command={currentCommand} />
         }
