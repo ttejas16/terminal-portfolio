@@ -26,15 +26,15 @@ function Visualizer() {
 
   return (
     <div className="flex items-end justify-center gap-x-2 pt-4 px-4 h-full w-full">
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
-      <div className="w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
+      <div className="w-4 lg:w-6 bg-neutral-400 rectangle"></div>
     </div>
   )
 }

@@ -51,7 +51,7 @@ function AnimatedText() {
     }, [pause]);
 
     return (
-        <div className="flex wrapper text-lg font-semibold">
+        <div className="flex wrapper text-sm lg:text-lg font-semibold">
             <span className="one word">int</span>&nbsp;
             <span className="two word">num</span>&nbsp;
             <span className="three word">=</span>&nbsp;

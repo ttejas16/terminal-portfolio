@@ -12,8 +12,8 @@ function usePagination(dataLength: number) {
     const pageEnd = (pageNumber * pageSize) + pageSize
 
     const handleResize = useCallback(() => {
-        setPageNumber(0);
-        
+        // setPageNumber(0);
+
         if (window.innerWidth < tailwindMediumWidth) {
             setPageSize(2);
         }

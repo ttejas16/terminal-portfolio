@@ -4,7 +4,7 @@ import { commands, CommandMap } from "./utils/commands";
 
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [currentCommand, setCurrentCommand] = useState("projects");
+  const [currentCommand, setCurrentCommand] = useState("home");
   const Component = (currentCommand in commands) ? commands[currentCommand as keyof CommandMap] : Error;
 
   const handleFocus = useCallback((e: KeyboardEvent) => {
@@ -36,11 +36,11 @@ function App() {
               onKeyDown={e => {
                 const command = e.currentTarget.value;
                 if (e.key == 'Enter' && (command in commands)) {
-                  setCurrentCommand(command);
+                  setCurrentCommand(command.toLowerCase());
                   if (inputRef.current) inputRef.current.value = "";
                 }
                 else if (e.key == 'Enter') {
-                  setCurrentCommand(command);
+                  setCurrentCommand(command.toLowerCase());
                   if (inputRef.current) inputRef.current.value = "";
                 }
               }}

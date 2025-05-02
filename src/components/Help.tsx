@@ -9,9 +9,9 @@ function Help() {
       {
         Object.keys(commands).map((command, index) => {
           return (
-            <div className={`text-primary text-xl space-x-2 ${animatedClassName}`} key={index}>
+            <div className={`text-primary text-base lg:text-xl space-x-2 ${animatedClassName}`} key={index}>
               <span>{index}.</span>
-              <span className="text-xl">{command}</span>
+              <span>{command}</span>
             </div>
           )
         })

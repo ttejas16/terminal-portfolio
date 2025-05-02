@@ -6,7 +6,7 @@ import useFadeIn from "../hooks/useFadeIn";
 function Error({ command }: { command: string }) {
   const { rootRef, animatedClassName } = useFadeIn();
   return (
-    <div ref={rootRef} className="h-full flex justify-center items-center text-lg">
+    <div ref={rootRef} className="h-full flex justify-center items-center text-xs md:text-lg">
       <div className={`flex flex-col items-center ${animatedClassName}`}>
         <div>
           Sorry can't interpret the command '<span className="text-primary">{command}</span>'
@@ -79,7 +79,7 @@ function TextRoll() {
   }, []);
 
   return (
-    <div className="flex gap-x-2 mt-2 justify-start -translate-x-[30%]">
+    <div className="flex gap-x-2 mt-2 justify-start -translate-x-[30%] text-xs md:text-lg">
       <span>
         Maybe try
       </span>
