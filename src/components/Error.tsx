@@ -8,7 +8,7 @@ function Error({ command }: { command: string }) {
   return (
     <div ref={rootRef} className="h-full flex justify-center items-center text-xs md:text-lg">
       <div className={`flex flex-col items-center ${animatedClassName}`}>
-        <div>
+        <div className="text-center">
           Sorry can't interpret the command '<span className="text-primary">{command}</span>'
         </div>
         <TextRoll />

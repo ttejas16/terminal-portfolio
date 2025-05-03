@@ -56,7 +56,7 @@ function Projects() {
         <button
           onClick={() => setPause((p) => !p)}
           title={pause ? "Play Animations" : "Pause Animations"}
-          className="mt-auto self-end px-3 py-2 bg-neutral-800 rounded-sm">
+          className="px-3 py-2 bg-neutral-800 rounded-sm">
           {
             pause ?
               <Play size={15} className="stroke-primary fill-primary" /> :

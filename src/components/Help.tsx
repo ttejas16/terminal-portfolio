@@ -9,7 +9,7 @@ function Help() {
       {
         Object.keys(commands).map((command, index) => {
           return (
-            <div className={`text-primary text-base lg:text-xl space-x-2 ${animatedClassName}`} key={index}>
+            <div className={`text-primary text-sm sm:text-base lg:text-xl space-x-2 ${animatedClassName}`} key={index}>
               <span>{index}.</span>
               <span>{command}</span>
             </div>

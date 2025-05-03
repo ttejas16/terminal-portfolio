@@ -35,13 +35,14 @@ function App() {
               className="outline-none border-none bg-inherit text-neutral-300 pr-4 caret-neutral-400 w-full"
               onKeyDown={e => {
                 const command = e.currentTarget.value;
-                if (e.key == 'Enter' && (command in commands)) {
+                if (e.key == 'Enter') {
+
+                  if (inputRef.current) {
+                    inputRef.current.value = "";
+                    inputRef.current.blur();
+                  }
+
                   setCurrentCommand(command.toLowerCase());
-                  if (inputRef.current) inputRef.current.value = "";
-                }
-                else if (e.key == 'Enter') {
-                  setCurrentCommand(command.toLowerCase());
-                  if (inputRef.current) inputRef.current.value = "";
                 }
               }}
             />

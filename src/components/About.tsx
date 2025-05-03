@@ -33,28 +33,25 @@ function About() {
   return (
     <div
       ref={rootRef}
-      className="px-6 py-6 text-lg flex flex-col h-full">
+      className="p-3 xl:px-6 xl:py-6 text-xs md:text-sm xl:text-base flex flex-col h-full">
       <div className={`${animatedClassName}`}>
         <div>Hellew I'm Tejas. A developer from Pune, India.</div>
         <div>I like to bulid things for web but(emphasized 'but') also I like to write C.</div>
-        <div className="mt-6">
+        <div className="mt-4 xl:mt-6">
           I have completed my Bachelors in Computer Science in 2024 and
           <br />currenlty looking for job opportunities.
         </div>
-        <div className="mt-6">
+        <div className="mt-4 xl:mt-6">
           I preferably use Javascript, Typescript, React but can learn any tech as required.
         </div>
       </div>
       <div className={`${animatedClassName}`}>
         Overall things that I know:
-        <div className="mt-6 grid grid-cols-6 w-max 
-                [&>*]:border [&>*]:border-primary/60 
-                [&>*:not(:nth-child(-n+6))]:border-t-0 
-                [&>*:not(:nth-child(6n+1))]:border-l-0">
+        <div className="mt-6 grid grid-cols-4 xl:grid-cols-6 w-max">
           {
             langugages.map((lang, index) => {
               return (
-                <div key={index} className="px-4 py-3" title={lang.name}>
+                <div key={index} className="px-4 py-3 border-[1px] border-primary/60" title={lang.name}>
                   <img src={lang.url} alt="" className="w-7 h-7" />
                 </div>
               )
