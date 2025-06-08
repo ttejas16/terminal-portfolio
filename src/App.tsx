@@ -39,7 +39,6 @@ function App() {
 
                   if (inputRef.current) {
                     inputRef.current.value = "";
-                    inputRef.current.blur();
                   }
 
                   setCurrentCommand(command.toLowerCase());
