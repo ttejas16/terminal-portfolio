@@ -35,14 +35,14 @@ function About() {
       ref={rootRef}
       className="p-3 xl:px-6 xl:py-6 text-xs md:text-sm xl:text-base flex flex-col h-full">
       <div className={`${animatedClassName}`}>
-        <div>Hellew I'm Tejas. A developer from Pune, India.</div>
-        <div>I like to bulid things for web but(emphasized 'but') also I like to write C.</div>
+        <div>Hellew I'm <span className="text-primary">Tejas</span>. A developer from Pune, India.</div>
+        <div>I like to bulid things for web but(emphasized 'but') also I like to write <span className="text-teal-400 text-teal-400 drop-shadow-[0_0_12px_rgba(20,184,166,0.8)]">C</span>.</div>
         <div className="mt-4 xl:mt-6">
-          I have completed my Bachelors in Computer Science in 2024 and
-          <br />currenlty looking for job opportunities.
+          I have completed my <span className="text-primary">Bachelors in Computer Science</span> in 2024 and
+          <br />currently looking for job opportunities.
         </div>
         <div className="mt-4 xl:mt-6">
-          I preferably use Javascript, Typescript, React but can learn any tech as required.
+          I prefer to use <span className="text-teal-500">Javascript, Typescript, React</span> but can learn any tech as required.
         </div>
       </div>
       <div className={`${animatedClassName}`}>
