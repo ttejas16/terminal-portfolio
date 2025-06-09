@@ -4,7 +4,7 @@ import Visualizer from "../components/Visualizer";
 import SpinningOrbit from "../components/SpinningOrbit";
 import Breakout from "../components/Breakout";
 
-interface Project {
+export interface Project {
   info: string,
   thumbnailComponent?: () => ReactNode,
   tags: string[],
@@ -12,7 +12,7 @@ interface Project {
   github: string,
 }
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     info: "A C lexer/tokenizer from scratch. It scans C source code and prints the tokens in it",
     tags: ["C", "Lexical analysis"],
@@ -50,5 +50,3 @@ const projects: Project[] = [
     github: "https://github.com/ttejas16/BreakOut"
   },
 ];
-
-export default projects;
