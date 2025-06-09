@@ -1,6 +1,6 @@
 import { PropsWithChildren, ReactNode } from "react";
 import projects from "../utils/projects";
-import { ChevronLeft, ChevronRight, Package } from "lucide-react";
+import { ChevronLeft, ChevronRight, Code, Link2, Package } from "lucide-react";
 import useFadeIn from "../hooks/useFadeIn";
 import { Pause, Play } from "lucide-react";
 import { useAnimationControl } from "../hooks/useAnimationControl";
@@ -31,13 +31,13 @@ function Projects() {
           projects.slice(pageStart, pageEnd).map((project, index) => {
             if (project.thumbnailComponent) {
               return (
-                <GridItem key={index} info={project.info} tags={project.tags}>
+                <GridItem key={index} info={project.info} tags={project.tags} link={project.link} github={project.github}>
                   <project.thumbnailComponent />
                 </GridItem>
               )
             }
             return (
-              <GridItem key={index} info={project.info} tags={project.tags} />
+              <GridItem key={index} info={project.info} tags={project.tags} link={project.link} github={project.github} />
             )
           })
         }
@@ -72,14 +72,31 @@ function Projects() {
 interface ItemProps extends PropsWithChildren {
   children?: ReactNode
   info: string,
-  tags: string[]
+  tags: string[],
+  link?: string,
+  github: string
 }
-function GridItem({ children, info, tags }: ItemProps) {
+function GridItem({ children, info, tags, link, github }: ItemProps) {
   return (
     <div className="h-full p-3 sm:p-6 flex flex-col gap-2
     relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:block after:w-full after:bg-neutral-800
-    before:absolute before:right-0 before:top-0 before:w-[1px] before:block before:h-full before:bg-neutral-800
+    before:absolute before:right-0 before:top-0 before:w-[1px] before:block before:h-full before:bg-neutral-800 group
     ">
+      <div className="absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 duration-150 
+      flex gap-x-3 px-3 py-2 bg-neutral-800 rounded-tl-md border-[1px] border-neutral-700">
+        {
+          link &&
+          <a href={link} target="_blank">
+            <Link2 size={20} className="stroke-neutral-400"/>
+          </a>
+        }
+        {
+          github &&
+          <a href={github} target="_blank">
+            <Code size={20} className="stroke-neutral-400"/>
+          </a>
+        }
+      </div>
       <div className="w-full h-40 bg-neutral-800 rounded-sm flex justify-center items-center">
         {children}
         {
