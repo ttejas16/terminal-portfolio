@@ -48,7 +48,7 @@ function Projects() {
           <button onClick={previousPage} disabled={!hasPrevious} className="disabled:opacity-[0.3]">
             <ChevronLeft size={15} className="stroke-neutral-100" />
           </button>
-          <span className="px-3 py-1 text-xs text-primary font-bold bg-neutral-800 rounded-md">{pageNumber + 1}</span>
+          <span className="px-3 py-1 text-xs text-primary font-bold bg-neutral-800 rounded-sm">{pageNumber + 1}</span>
           <button onClick={nextPage} disabled={!hasNext} className="disabled:opacity-[0.3]">
             <ChevronRight size={15} className="stroke-neutral-100" />
           </button>

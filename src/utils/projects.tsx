@@ -3,6 +3,7 @@ import AnimatedText from "../components/AnimatedText";
 import Visualizer from "../components/Visualizer";
 import SpinningOrbit from "../components/SpinningOrbit";
 import Breakout from "../components/Breakout";
+import { TerminalSquare } from "lucide-react";
 
 export interface Project {
   info: string,
@@ -48,5 +49,16 @@ export const projects: Project[] = [
     tags: ["Python", "Pygame"],
     thumbnailComponent: Breakout,
     github: "https://github.com/ttejas16/BreakOut"
+  },
+  {
+    info: "Portfolio - Personal site to showcase my projects.",
+    tags: ["React", "Javascript"],
+    github: "https://github.com/ttejas16/portfolio"
+  },
+  {
+    info: "PortfolioV2 - Portfolio again but this time its terminal themed.",
+    tags: ["React", "Typescript", "AnimeJs"],
+    thumbnailComponent: () => <TerminalSquare size={35} className="stroke-primary"/>,
+    github: "https://github.com/ttejas16/terminal-portfolio"
   },
 ];
