@@ -1,55 +1,42 @@
-import React, { useRef, useEffect } from 'react';
-import { animate } from 'animejs';
+import { useLayoutEffect, useRef } from 'react';
 
-interface AnimatedBorderProps {
-  strokeWidth?: number;  // thickness of the square’s border
-  strokeColor?: string;  // color of the border
-  duration?: number;     // animation duration in ms
-}
+function AnimatedBorder() {
+  const rectRef = useRef<SVGRectElement | null>(null);
 
-const AnimatedBorder: React.FC<AnimatedBorderProps> = ({
-  strokeWidth = 1,
-  strokeColor = '#ffffff',
-  duration = 1200,
-}) => {
-  const rectRef = useRef<SVGRectElement>(null);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const rect = rectRef.current;
     if (!rect) return;
+    
+    // Reset any previous transition so we can restart it
+    rect.style.transition = 'none';
 
-    const perimeter = rect.getTotalLength();
+    const length = rect.getTotalLength();
+    rect.style.strokeDasharray = `${length}`;
+    rect.style.strokeDashoffset = `${length}`;
 
-    rect.setAttribute('stroke-dasharray', perimeter.toString());
-    rect.setAttribute('stroke-dashoffset', perimeter.toString());
+    // Force a reflow to apply the reset styles
+    void rect.getBoundingClientRect();
 
-    animate(rect, {
-      strokeDashoffset: [perimeter, 0],
-      easing: 'easeInOutSine',
-      duration,
-    });
-  }, [duration]);
+    // Now apply the transition and animate
+    rect.style.transition = 'stroke-dashoffset 1s ease-in-out';
+    rect.style.strokeDashoffset = '0';
+  });
 
   return (
-    <svg
-      className='absolute top-0 left-0 w-full h-full'
-      viewBox="0 0 100 100"
-      preserveAspectRatio='none'
-      // ref={rectRef}
-      style={{ display: 'block', margin: 'auto auto' }}
-    >
-      <rect
-        ref={rectRef}
-        x={strokeWidth / 2}
-        y={strokeWidth / 2}
-        width={100 - strokeWidth}
-        height={100 - strokeWidth}
-        fill="none"
-        stroke={strokeColor}
-        strokeWidth={strokeWidth}
-      // vectorEffect={"non-scaling-stroke"}
-      />
-    </svg>
+    <div className="w-full h-full">
+      <svg className="w-full h-full">
+        <rect
+          ref={rectRef}
+          x={0.5}
+          y={0.5}
+          width="calc(100% - 1px)"
+          height="calc(100% - 1px)"
+          fill="none"
+          className='stroke-primary'
+          strokeWidth={1}
+        />
+      </svg>
+    </div>
   );
 };
 
