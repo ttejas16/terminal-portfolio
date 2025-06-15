@@ -1,50 +1,40 @@
-import { Code, GitCompare, Terminal } from "lucide-react";
+import { Terminal } from "lucide-react";
 import useFadeIn from "../hooks/useFadeIn";
-// import AnimatedBorder from "./AnimatedBorder";
 
 function Home() {
   const { rootRef, animatedClassName } = useFadeIn();
 
   return (
-    <div className="h-full flex flex-col justify-center items-center" ref={rootRef}>
+    <div className="h-full flex justify-start items-start p-6" ref={rootRef}>
 
-      <div className={`text-xs md:text-sm xl:text-xl text-neutral-300 px-10 xl:px-32 py-16 flex justify-center relative border-[1px] border-primary/90 draw-border ${animatedClassName}`}>
-
-        <div className="flex flex-col lg:flex-row items-center">
-          <span>
-            Hey! Myself
-            <span className="text-primary">
-              &nbsp;Tejas.&nbsp;
-            </span>
-          </span>
-          <span>
-            Welcome to my
-            <span className="text-primary">
-              &nbsp;Terminal.&nbsp;
-            </span>
-          </span>
+      <div className={`text-xs md:text-sm xl:text-base text-neutral-300 px-6 xl:px-16 py-8 xl:py-16 
+        flex flex-col gap-y-8 relative border-[1px] border-primary/90 draw-border ${animatedClassName}`}>
+        <div>
+          Hello myself <span className="text-primary">Tejas</span>. Welcome to my <span className="text-primary">Terminal.</span>
         </div>
-
-        <div className="absolute bottom-[-31%] lg:bottom-[-42%] xl:bottom-[-55%]">
-          <div className="py-4 flex gap-x-6 text-primary/90">
-            <div className="bg-neutral-800 px-3 lg:px-6 xl:px-8 py-2 lg:py-4 xl:py-6 rounded-sm flex gap-x-2 border-[1px] border-dashed border-primary/60">
-              <Terminal className="icon size-[15px] xl:size-[30px]" size={30} strokeWidth={1} />
-            </div>
-            <div className="bg-neutral-800 px-3 lg:px-6 xl:px-8 py-2 lg:py-4 xl:py-6 rounded-sm flex gap-x-2 border-[1px] border-dashed border-primary/60">
-              <Code className="icon size-[15px] xl:size-[30px]" size={30} strokeWidth={1} />
-            </div>
-            <div className="bg-neutral-800 px-3 lg:px-6 xl:px-8 py-2 lg:py-4 xl:py-6 rounded-sm flex gap-x-2 border-[1px] border-dashed border-primary/60">
-              <GitCompare className="icon size-[15px] xl:size-[30px]" size={30} strokeWidth={1} />
-            </div>
-          </div>
-          <div className="text-xs md:text-sm xl:text-xl text-neutral-300 text-center">
-            enter
-            <span className="text-primary font-semibold">
-              &nbsp;help&nbsp;
-            </span>
-            to begin
+        <div>
+          Avaliable Commands -
+          <div className="flex flex-col text-primary pt-2">
+            <span>01 home</span>
+            <span>02 projects</span>
+            <span>03 about</span>
           </div>
         </div>
+
+        <div className="flex items-center">
+          <div className="w-6 h-6 bg-neutral-200"></div>
+          <div className="w-6 h-6 bg-neutral-700"></div>
+          <div className="w-6 h-6 bg-neutral-400"></div>
+          <div className="w-6 h-6 bg-primary"></div>
+        </div>
+
+        <div>
+          <span>Why <span className="text-primary">Terminal</span> you ask? Because it looks <span className="text-teal-400">simple.</span></span>
+          <div className="flex gap-x-2 pt-4">
+            <Terminal className="text-primary size-4 xl:size-5" />
+          </div>
+        </div>
+
       </div>
 
     </div>
